@@ -94,17 +94,18 @@
 
 
 
-  <meta name="description" content="talk is cheap,show me your code.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="http://blog.ileehan.cn/about/index.html">
+  <meta name="description" content="[TOC]">
+<meta name="keywords" content="笔记,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 注解 学习笔记">
+<meta property="og:url" content="http://blog.ileehan.cn/2019/07/19/java注解学习笔记/index.html">
 <meta property="og:site_name" content="iLeeHan Blog">
-<meta property="og:description" content="talk is cheap,show me your code.">
+<meta property="og:description" content="[TOC]">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-19T11:50:06.524Z">
+<meta property="og:updated_time" content="2019-07-19T14:47:02.321Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="talk is cheap,show me your code.">
+<meta name="twitter:title" content="Java 注解 学习笔记">
+<meta name="twitter:description" content="[TOC]">
 
 
 
@@ -112,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://blog.ileehan.cn/about/">
+  <link rel="canonical" href="http://blog.ileehan.cn/2019/07/19/java注解学习笔记/">
 
 
 
@@ -122,7 +123,7 @@
   };
 </script>
 
-  <title>关于我 | iLeeHan Blog</title>
+  <title>Java 注解 学习笔记 | iLeeHan Blog</title>
   
 
 
@@ -272,7 +273,7 @@
         
         
           
-          <li class="menu-item menu-item-about menu-item-active">
+          <li class="menu-item menu-item-about">
 
     
     
@@ -342,73 +343,325 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.ileehan.cn/2019/07/19/java注解学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lee Han">
+      <meta itemprop="description" content="talk is cheap,show me your code.">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iLeeHan Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">关于我
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
+        
+          <h1 class="post-title" itemprop="name headline">Java 注解 学习笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-19 20:32:39 / 修改时间：22:47:02" itemprop="dateCreated datePublished" datetime="2019-07-19T20:32:39+08:00">2019-07-19</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<a id="more"></a>
+
+<h2 id="一、注解格式"><a href="#一、注解格式" class="headerlink" title="一、注解格式"></a>一、注解格式</h2><h2 id="注解格式"><a href="#注解格式" class="headerlink" title="注解格式"></a>注解格式</h2><p><strong>格式</strong>：@注释名/ @注释名(value)</p>
+<p><strong>例如：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SuppressWaring</span>(<span class="string">"all"</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、内置注解"><a href="#二、内置注解" class="headerlink" title="二、内置注解"></a>二、内置注解</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span> <span class="comment">// 用于修饰方法，表示重写</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span> <span class="comment">// 可修饰方法 属性 类， 表示此方法弃用（不是不能用）</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SuppressWarings</span> <span class="comment">// 抑制编译时的警告信息</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>deprecation</td>
+<td>使用了过时的类或方法的警告</td>
+</tr>
+<tr>
+<td>unchecked</td>
+<td>执行了为检查的转换。eg:使用集合未指定泛型</td>
+</tr>
+<tr>
+<td>fallthrough</td>
+<td>switch发生case穿透</td>
+</tr>
+<tr>
+<td>path</td>
+<td>资源或类路径不存在</td>
+</tr>
+<tr>
+<td>serial</td>
+<td>当前可序列化类上缺少serialVersionUID定义时的警告</td>
+</tr>
+<tr>
+<td>finally</td>
+<td>任何finally子句不能完成时的警告</td>
+</tr>
+<tr>
+<td>all</td>
+<td>关于以上的所有警告</td>
+</tr>
+</tbody></table>
+<p><strong>eg:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SuppressWarings</span>(<span class="string">"fallthrough"</span>)</span><br><span class="line"><span class="meta">@SuppressWarings</span>(value = &#123;<span class="string">"unchecked"</span>,<span class="string">"deprecation"</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、自定义注解"><a href="#三、自定义注解" class="headerlink" title="三、自定义注解"></a>三、自定义注解</h2><p><strong>例子</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">元注解</span></span><br><span class="line"><span class="comment">public @interface 注解名｛注解体｝</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Target</span>(value = &#123;ElementType.FIELD&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> IField &#123;</span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1.基本语法"></a>1.基本语法</h3><p>注解类型的声明部分：</p>
+<p>注解在Java中，与类、接口、枚举类似，因此其声明语法基本一致，只是所使用的关键字有所不同<code>@interface</code>。<strong>在底层实现上，所有定义的注解都会自动继承java.lang.annotation.Annotation接口</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> IField &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注解类型元素：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> IField &#123;</span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">age</span><span class="params">()</span> <span class="keyword">default</span> 12</span>;</span><br><span class="line">    <span class="keyword">int</span>[] array();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>:warning:注意</p>
+<ul>
+<li>该元素的类型只能是<strong>基本数据类型、Class、String、enum、注解类型以及上述类型的一位数组</strong></li>
+<li>若注解中只有一个元素，则将其命名为<strong>value</strong>（方便，在使用时可省略参数名）</li>
+<li>()仅是特殊语法，不代表他是方法</li>
+<li>如果没有默认值，使用时必须要给该类型元素赋值</li>
+<li>定义注解时常用空字符串、0做默认值，可使用-1表示不存在</li>
+</ul>
+<h3 id="2-元注解"><a href="#2-元注解" class="headerlink" title="2.元注解"></a>2.元注解</h3><p><strong>元注解：专门修饰注解的注解</strong></p>
+<h4 id="2-1-Target"><a href="#2-1-Target" class="headerlink" title="2.1 @Target"></a>2.1 @Target</h4><p>用于描述注解的使用范围（注解用在什么位置上）</p>
+<table>
+<thead>
+<tr>
+<th>所修饰范围</th>
+<th>取值ElementType</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>package包</td>
+<td>PACKAGE</td>
+</tr>
+<tr>
+<td>类、接口、枚举、注解类型</td>
+<td>TYPE</td>
+</tr>
+<tr>
+<td>类成员(方法、构造方法、成员变量、枚举值)</td>
+<td>CONSTRUCTOR:描述构造器<br>FIELD：用于描述成员变量<br>METHOD:描述方法</td>
+</tr>
+<tr>
+<td>方法参数和局部变量</td>
+<td>LOCAL_VARIABLE:描述局部变量<br>PARAMETER:描述参数</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//@CherryAnnotation被限定只能使用在类、接口或方法上面</span></span><br><span class="line"><span class="meta">@Target</span>(value = &#123;ElementType.TYPE,ElementType.METHOD&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CherryAnnotation &#123;</span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-Retention"><a href="#2-2-Retention" class="headerlink" title="2.2 @Retention"></a>2.2 @Retention</h4><p>用于描述注解的生命周期</p>
+<table>
+<thead>
+<tr>
+<th>取值RetentionPolicy</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SOURCE</td>
+<td>在源文件中有效（给人看的）</td>
+</tr>
+<tr>
+<td>CLASS</td>
+<td>在class文件中有效（JVM忽略它）</td>
+</tr>
+<tr>
+<td>RUNTIME</td>
+<td>在运行时有效，此时可以被反射机制读取</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME) <span class="comment">// 运行时有效</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> IField &#123;</span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，自定义注解使用的是<code>RetentionPolicy.CLASS</code></p>
+<h2 id="四、反射机制读取注解信息"><a href="#四、反射机制读取注解信息" class="headerlink" title="四、反射机制读取注解信息"></a>四、反射机制读取注解信息</h2><p><strong>Demo.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//获取UserInfo的class对象</span></span><br><span class="line">            Class cl = Class.forName(<span class="string">"cn.ileehan.bean.UserInfo"</span>);</span><br><span class="line">            <span class="comment">// 获得类的所有注解</span></span><br><span class="line">            Annotation[] annotations = cl.getAnnotations();</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (Annotation a : annotations) &#123;</span><br><span class="line">                System.out.println(a);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 获得类的指定注解</span></span><br><span class="line">            ITable table = (ITable) cl.getAnnotation(ITable.class);</span><br><span class="line">            System.out.println(table.value());</span><br><span class="line">            <span class="comment">// 获得类的属性的注解</span></span><br><span class="line">            Field na = cl.getDeclaredField(<span class="string">"name"</span>); <span class="comment">// 通过反射获取指定属性</span></span><br><span class="line">            IField ie = na.getAnnotation(IField.class);</span><br><span class="line">            System.out.println(ie.name()+<span class="string">"---"</span>+ie.type()+<span class="string">"---"</span>+ie.length());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*output</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">@cn.ileehan.annotation.ITable(value=t_talbe)</span></span><br><span class="line"><span class="comment">t_talbe</span></span><br><span class="line"><span class="comment">name---varchar---10</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>ITable.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(value = &#123;ElementType.TYPE&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> ITable &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>IField.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(value = &#123;ElementType.FIELD&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> IField &#123;</span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">String <span class="title">type</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">length</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>UserInfo.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ITable</span>(<span class="string">"t_talbe"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span> </span>&#123;</span><br><span class="line">    <span class="meta">@IField</span>(name = <span class="string">"id"</span>,type = <span class="string">"int"</span>,length = <span class="number">6</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="meta">@IField</span>(name = <span class="string">"name"</span>,type = <span class="string">"varchar"</span>,length = <span class="number">10</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@IField</span>(name = <span class="string">"age"</span>,type = <span class="string">"int"</span>,length = <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
         
           
         
-      </div>
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
       
       
       
-    </div>
-    
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/19/2019年上半年总结/" rel="prev" title="2019上半年总结(2019.5.31)">
+                2019上半年总结(2019.5.31) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
-
-    
-    
-    
   </div>
 
 
@@ -437,8 +690,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -554,6 +816,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、注解格式"><span class="nav-number">1.</span> <span class="nav-text">一、注解格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注解格式"><span class="nav-number">2.</span> <span class="nav-text">注解格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、内置注解"><span class="nav-number">3.</span> <span class="nav-text">二、内置注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、自定义注解"><span class="nav-number">4.</span> <span class="nav-text">三、自定义注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基本语法"><span class="nav-number">4.1.</span> <span class="nav-text">1.基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-元注解"><span class="nav-number">4.2.</span> <span class="nav-text">2.元注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-Target"><span class="nav-number">4.2.1.</span> <span class="nav-text">2.1 @Target</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Retention"><span class="nav-number">4.2.2.</span> <span class="nav-text">2.2 @Retention</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、反射机制读取注解信息"><span class="nav-number">5.</span> <span class="nav-text">四、反射机制读取注解信息</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
