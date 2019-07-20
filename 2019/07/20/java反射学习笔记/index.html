@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="一、反射概述JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。">
+  <meta name="description" content="一、反射概述JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。 (网图) 类加载过程：">
 <meta name="keywords" content="Java,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 反射(Reflection) 学习笔记">
 <meta property="og:url" content="http://blog.ileehan.cn/2019/07/20/java反射学习笔记/index.html">
 <meta property="og:site_name" content="iLeeHan Blog">
-<meta property="og:description" content="一、反射概述JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。">
+<meta property="og:description" content="一、反射概述JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。 (网图) 类加载过程：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/20/eSPM6S.png">
-<meta property="og:updated_time" content="2019-07-20T12:19:35.102Z">
+<meta property="og:updated_time" content="2019-07-20T14:12:28.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 反射(Reflection) 学习笔记">
-<meta name="twitter:description" content="一、反射概述JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。">
+<meta name="twitter:description" content="一、反射概述JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。 (网图) 类加载过程：">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/07/20/eSPM6S.png">
 
 
@@ -408,7 +408,7 @@
                 
               
 
-              <time title="创建时间：2019-07-20 00:10:57 / 修改时间：20:19:35" itemprop="dateCreated datePublished" datetime="2019-07-20T00:10:57+08:00">2019-07-20</time>
+              <time title="创建时间：2019-07-20 00:10:57 / 修改时间：22:12:28" itemprop="dateCreated datePublished" datetime="2019-07-20T00:10:57+08:00">2019-07-20</time>
             </span>
           
 
@@ -466,11 +466,11 @@
 
       
         <h2 id="一、反射概述"><a href="#一、反射概述" class="headerlink" title="一、反射概述"></a>一、反射概述</h2><p>JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。</p>
-<a id="more"></a>
-
 <p>(网图)</p>
 <p><strong>类加载过程：</strong></p>
 <p><img src="https://s2.ax1x.com/2019/07/20/eSPM6S.png" alt="类加载活成"></p>
+<a id="more"></a>
+
 <h2 id="二、Class类（包含完整的类的结构信息）"><a href="#二、Class类（包含完整的类的结构信息）" class="headerlink" title="二、Class类（包含完整的类的结构信息）"></a>二、Class类（包含完整的类的结构信息）</h2><p><strong>Class对象由来：</strong><font color="Blue">将class文件读入内存，并为之创建一个Class对象</font></p>
 <ul>
 <li><code>Class</code> 没有public 构造器。<code>Class</code> 对象是在加载类时由Java 虚拟机以及通过调用类加载器中的 <code>defineClass</code> 方法自动构造的，因此不能显式地声明一个<code>Class</code>对象。</li>
