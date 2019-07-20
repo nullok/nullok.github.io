@@ -95,19 +95,19 @@
 
 
   <meta name="description" content="一、反射概述JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。">
-<meta name="keywords" content="笔记,Java">
+<meta name="keywords" content="Java,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 反射(Reflection) 学习笔记">
 <meta property="og:url" content="http://blog.ileehan.cn/2019/07/20/java反射学习笔记/index.html">
 <meta property="og:site_name" content="iLeeHan Blog">
 <meta property="og:description" content="一、反射概述JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdn.net/20170513133210763">
-<meta property="og:updated_time" content="2019-07-19T17:48:58.560Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/20/eSPM6S.png">
+<meta property="og:updated_time" content="2019-07-20T12:19:35.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 反射(Reflection) 学习笔记">
 <meta name="twitter:description" content="一、反射概述JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20170513133210763">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/20/eSPM6S.png">
 
 
 
@@ -408,7 +408,7 @@
                 
               
 
-              <time title="创建时间：2019-07-20 00:10:57 / 修改时间：01:48:58" itemprop="dateCreated datePublished" datetime="2019-07-20T00:10:57+08:00">2019-07-20</time>
+              <time title="创建时间：2019-07-20 00:10:57 / 修改时间：20:19:35" itemprop="dateCreated datePublished" datetime="2019-07-20T00:10:57+08:00">2019-07-20</time>
             </span>
           
 
@@ -470,7 +470,7 @@
 
 <p>(网图)</p>
 <p><strong>类加载过程：</strong></p>
-<p><img src="https://img-blog.csdn.net/20170513133210763" alt="类加载活成"></p>
+<p><img src="https://s2.ax1x.com/2019/07/20/eSPM6S.png" alt="类加载活成"></p>
 <h2 id="二、Class类（包含完整的类的结构信息）"><a href="#二、Class类（包含完整的类的结构信息）" class="headerlink" title="二、Class类（包含完整的类的结构信息）"></a>二、Class类（包含完整的类的结构信息）</h2><p><strong>Class对象由来：</strong><font color="Blue">将class文件读入内存，并为之创建一个Class对象</font></p>
 <ul>
 <li><code>Class</code> 没有public 构造器。<code>Class</code> 对象是在加载类时由Java 虚拟机以及通过调用类加载器中的 <code>defineClass</code> 方法自动构造的，因此不能显式地声明一个<code>Class</code>对象。</li>
@@ -500,7 +500,7 @@
 
 <h3 id="2-动态使用（属性、方法、构造器）"><a href="#2-动态使用（属性、方法、构造器）" class="headerlink" title="2.动态使用（属性、方法、构造器）"></a>2.动态使用（属性、方法、构造器）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String path = <span class="string">"cn.ileehan.bean.UserInfo"</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Class&lt;UserInfo&gt; clazz = (Class&lt;UserInfo&gt;) Class.forName(path);</span><br><span class="line">            <span class="comment">// 通过反射API调用构造器，构造对象</span></span><br><span class="line">            UserInfo u = clazz.newInstance(); <span class="comment">// 实际上调用了UserInfo的无参构造方法</span></span><br><span class="line">            System.out.println(u);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//指定参数类型</span></span><br><span class="line">            Constructor&lt;UserInfo&gt; constructor = clazz.getDeclaredConstructor(<span class="keyword">int</span>.class);</span><br><span class="line">            UserInfo us = constructor.newInstance(<span class="number">12</span>);<span class="comment">//实例化的时候要按照构造器要求传值</span></span><br><span class="line">            System.out.println(us.getId());</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 通过反射API调用方法</span></span><br><span class="line">            UserInfo u2 = clazz.newInstance();</span><br><span class="line">            Method m = clazz.getDeclaredMethod(<span class="string">"setName"</span>, String.class);</span><br><span class="line">            m.invoke(u2,<span class="string">"李四"</span>); <span class="comment">// 激活此方法 参数1-》哪里的方法 参数2-》按照方法的形参来</span></span><br><span class="line">            System.out.println(u2.getName());</span><br><span class="line">            <span class="comment">// 通过反射API操作属性</span></span><br><span class="line">            UserInfo u3 = clazz.newInstance();</span><br><span class="line">            Field f = clazz.getDeclaredField(<span class="string">"age"</span>);</span><br><span class="line">            f.setAccessible(<span class="keyword">true</span>); <span class="comment">// 允许操作private 不用做安全检查了，可以直接访问</span></span><br><span class="line">            f.set(u3,<span class="number">123</span>); <span class="comment">// 通过反射直接写属性</span></span><br><span class="line">            System.out.println(u3.getAge()); <span class="comment">// 通过反射直接读属性的值</span></span><br><span class="line">            System.out.println(f.get(u3));</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-反射main方法"><a href="#3-反射main方法" class="headerlink" title="3.反射main方法"></a>3.反射main方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String path = <span class="string">"cn.ileehan.bean.UserInfo"</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//获取UserInfo对象字节码</span></span><br><span class="line">            Class&lt;UserInfo&gt; clazz = (Class&lt;UserInfo&gt;) Class.forName(path);</span><br><span class="line">            <span class="comment">//获取main方法</span></span><br><span class="line">            Method methodMain = clazz.getMethod(<span class="string">"main"</span>,String[].class);</span><br><span class="line">            <span class="comment">//调用main方法 明确告诉编译器，这个数组是一个参数</span></span><br><span class="line">            methodMain.invoke(<span class="keyword">null</span>, (Object)<span class="keyword">new</span> String[]&#123;<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>&#125;);</span><br><span class="line">            </span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-反射main方法"><a href="#3-反射main方法" class="headerlink" title="3.反射main方法"></a>3.反射main方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String path = <span class="string">"cn.ileehan.bean.UserInfo"</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//获取UserInfo对象字节码</span></span><br><span class="line">            Class&lt;UserInfo&gt; clazz = (Class&lt;UserInfo&gt;) Class.forName(path);</span><br><span class="line">            <span class="comment">//获取main方法</span></span><br><span class="line">            Method methodMain = clazz.getMethod(<span class="string">"main"</span>,String[].class);</span><br><span class="line">            <span class="comment">//调用main方法</span></span><br><span class="line">            methodMain.invoke(<span class="keyword">null</span>, (Object)<span class="keyword">new</span> String[]&#123;<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>&#125;);</span><br><span class="line">           <span class="comment">/*</span></span><br><span class="line"><span class="comment">           必须要加上(Object)</span></span><br><span class="line"><span class="comment">           否则编译器会编译成</span></span><br><span class="line"><span class="comment">            methodMain.invoke(null, "a","b","c");</span></span><br><span class="line"><span class="comment">           */</span></span><br><span class="line">            </span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-反射注解"><a href="#4-反射注解" class="headerlink" title="4.反射注解"></a>4.反射注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//获取UserInfo的class对象</span></span><br><span class="line">            Class cl = Class.forName(<span class="string">"cn.ileehan.bean.UserInfo"</span>);</span><br><span class="line">            <span class="comment">// 获得类的所有注解</span></span><br><span class="line">            Annotation[] annotations = cl.getAnnotations();</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (Annotation a : annotations) &#123;</span><br><span class="line">                System.out.println(a);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 获得类的指定注解</span></span><br><span class="line">            ITable table = (ITable) cl.getAnnotation(ITable.class); <span class="comment">// 转成注解类型</span></span><br><span class="line">            System.out.println(table.value());</span><br><span class="line">            <span class="comment">// 获得类的属性的注解</span></span><br><span class="line">            Field na = cl.getDeclaredField(<span class="string">"name"</span>); <span class="comment">// 通过反射获取指定属性</span></span><br><span class="line">            IField ie = na.getAnnotation(IField.class);</span><br><span class="line">            System.out.println(ie.name()+<span class="string">"---"</span>+ie.type()+<span class="string">"---"</span>+ie.length());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*output</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">@cn.ileehan.annotation.ITable(value=t_talbe)</span></span><br><span class="line"><span class="comment">t_talbe</span></span><br><span class="line"><span class="comment">name---varchar---10</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
@@ -533,9 +533,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/笔记/" rel="tag"># 笔记</a>
-          
             <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
           
         </div>
       
@@ -557,6 +557,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/20/MyEclipse2017破解方法/" rel="prev" title="MyEclipse2017破解方法">
+                MyEclipse2017破解方法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -627,7 +631,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -646,7 +650,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -667,7 +673,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
