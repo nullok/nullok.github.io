@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Struts2.5.x遇到的坑]]></title>
+    <url>%2F2019%2F07%2F29%2FStruts2-5-x%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%2F</url>
+    <content type="text"><![CDATA[通配符访问方法，报错404错误找不到页面报错截图 报错内容：There is no Action mapped for namespace [/] and action name [Emp_edit] associated with context path [/demo]. 错误原因：Struts2.5 为了提升安全性，默认开启了Strict Method Invocation（strict-method-invocation） 在SMI开启的情况下，通配符不会匹配所有的方法名，而是会匹配在default-struts.xml文件中global-allowed-methods属性所允许的方法名或者是匹配通过 &lt;allowed-method/&gt;标签来定义的方法名。 解决方法： ​ 方法一 在struts.xml中的package下添加regex:.*，匹配所有。 ​ 方法二 将package标签的属性strict-method-invocation设置为false。 默认全局允许匹配的方法名称： 动态匹配问题官方解释]]></content>
+      <categories>
+        <category>Struts2</category>
+      </categories>
+      <tags>
+        <tag>-Struts2 -Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[IDEA导入mysql驱动，运行时找不到驱动包解决方案]]></title>
     <url>%2F2019%2F07%2F23%2FIDEA%E5%AF%BC%E5%85%A5mysql%E9%A9%B1%E5%8A%A8%EF%BC%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E6%89%BE%E4%B8%8D%E5%88%B0%E9%A9%B1%E5%8A%A8%E5%8C%85%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%2F</url>
     <content type="text"><![CDATA[状况： 驱动导入了。 编译成功，运行报错： 解决办法 在WEB-INF目录下创建lib文件夹，将驱动包放入文件夹，并将lib文件设置为resources 再次添加驱动包就可以了]]></content>
@@ -31,8 +42,8 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>笔记</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -43,8 +54,8 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>笔记</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
 </search>
