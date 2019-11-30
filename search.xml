@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[springboot+mybatis配置中遇到的问题]]></title>
+    <url>%2F2019%2F10%2F05%2Fspringboot-mybatis%E9%85%8D%E7%BD%AE%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[遇到的问题配置数据源123456789101112131415161718192021222324@Configuration@MapperScan("cn.ileehan.community.dao")public class DataSourceConfiguration &#123; @Value("$&#123;c3p0.driver&#125;") private String jdbcDriver; @Value("$&#123;c3p0.url&#125;") private String jdbcUrl; @Value("$&#123;c3p0.name&#125;") private String jdbcUsername; @Value("$&#123;c3p0.password&#125;") private String jdbcPassword; @Bean(name = "dataSource") public ComboPooledDataSource createDataSource() throws PropertyVetoException &#123; ComboPooledDataSource dataSource = new ComboPooledDataSource(); dataSource.setDriverClass(jdbcDriver); dataSource.setJdbcUrl(jdbcUrl); dataSource.setUser(jdbcUsername); dataSource.setPassword(jdbcPassword); // 关闭连接之后不自动commit dataSource.setAutoCommitOnClose(false); return dataSource; &#125;&#125; 配置SqlSessionFactoryBean123456789101112131415161718192021222324252627282930313233@Configurationpublic class SessionFactoryConfiguration &#123; @Value("$&#123;mapper.xml.config.path&#125;") private String mapperXMLConfigPath; @Value("$&#123;mapper.package.path&#125;") private String mapperPackagePath; @Value("$&#123;mapper.global.config&#125;") private String globalConfig; @Autowired private DataSource dataSource; @Bean public SqlSessionFactoryBean createSqlSessionFactory() throws IOException &#123; SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean(); // resource查找器可以查找类路径下或文件路径下的资源 PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver(); // mapperXML文件路径 String packageMapperXMLConfigPath = PathMatchingResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX + mapperXMLConfigPath; // mybatis-config.xml路径 String globalConfigPath = PathMatchingResourcePatternResolver.CLASSPATH_URL_PREFIX + globalConfig; // 设置 mapper 对应的 XML 文件的路径 sqlSessionFactoryBean.setMapperLocations(resolver.getResources(packageMapperXMLConfigPath)); // 设置数据源 sqlSessionFactoryBean.setDataSource(dataSource); // 设置 mapper 接口所在的包 sqlSessionFactoryBean.setTypeAliasesPackage(mapperPackagePath); // 设置mybatis-config.xml，否则xml中全局配置将失效 sqlSessionFactoryBean.setConfigLocation(resolver.getResource(globalConfigPath)); return sqlSessionFactoryBean; &#125;&#125; 注意：在使用配置类配置SqlSessionFactoryBean时，要记得设置setConfigLocation #]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>SpringBoot</tag>
+        <tag>Mybatis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Struts2.5.x遇到的坑]]></title>
     <url>%2F2019%2F07%2F29%2FStruts2-5-x%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%2F</url>
     <content type="text"><![CDATA[通配符访问方法，报错404错误找不到页面报错截图 报错内容：There is no Action mapped for namespace [/] and action name [Emp_edit] associated with context path [/demo]. 错误原因：Struts2.5 为了提升安全性，默认开启了Strict Method Invocation（strict-method-invocation） 在SMI开启的情况下，通配符不会匹配所有的方法名，而是会匹配在default-struts.xml文件中global-allowed-methods属性所允许的方法名或者是匹配通过 &lt;allowed-method/&gt;标签来定义的方法名。 解决方法： ​ 方法一 在struts.xml中的package下添加regex:.*，匹配所有。 ​ 方法二 将package标签的属性strict-method-invocation设置为false。 默认全局允许匹配的方法名称： 动态匹配问题官方解释]]></content>
@@ -42,8 +55,8 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>Java</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -54,8 +67,8 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>Java</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
 </search>
