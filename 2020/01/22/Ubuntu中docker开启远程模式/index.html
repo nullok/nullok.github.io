@@ -18,18 +18,18 @@
   
   
   <title>Ubuntu中docker开启远程模式 | NullOK</title>
-  <meta name="description" content="Ubuntu中docker开启远程模式0x011vim /lib/systemd/system/docker.service  0x02找到ExecStart,并添加-H tcp://0.0.0.0:2375 12原：ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock  123增加-H t">
+  <meta name="description" content="0x011vim /lib/systemd/system/docker.service  0x02找到ExecStart,并添加-H tcp://0.0.0.0:2375 12原：ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock  123增加-H tcp://0.0.0.0:2375：E">
 <meta name="keywords" content="Ubuntu,docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu中docker开启远程模式">
 <meta property="og:url" content="http://www.nullok.com/2020/01/22/Ubuntu中docker开启远程模式/index.html">
 <meta property="og:site_name" content="NullOK - Blog">
-<meta property="og:description" content="Ubuntu中docker开启远程模式0x011vim /lib/systemd/system/docker.service  0x02找到ExecStart,并添加-H tcp://0.0.0.0:2375 12原：ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock  123增加-H t">
+<meta property="og:description" content="0x011vim /lib/systemd/system/docker.service  0x02找到ExecStart,并添加-H tcp://0.0.0.0:2375 12原：ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock  123增加-H tcp://0.0.0.0:2375：E">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-23T13:51:37.641Z">
+<meta property="og:updated_time" content="2020-01-23T14:39:28.637Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu中docker开启远程模式">
-<meta name="twitter:description" content="Ubuntu中docker开启远程模式0x011vim /lib/systemd/system/docker.service  0x02找到ExecStart,并添加-H tcp://0.0.0.0:2375 12原：ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock  123增加-H t">
+<meta name="twitter:description" content="0x011vim /lib/systemd/system/docker.service  0x02找到ExecStart,并添加-H tcp://0.0.0.0:2375 12原：ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock  123增加-H tcp://0.0.0.0:2375：E">
   <!-- Canonical links -->
   <link rel="canonical" href="http://www.nullok.com/2020/01/22/Ubuntu中docker开启远程模式/index.html">
   
@@ -384,7 +384,7 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="Ubuntu中docker开启远程模式"><a href="#Ubuntu中docker开启远程模式" class="headerlink" title="Ubuntu中docker开启远程模式"></a>Ubuntu中docker开启远程模式</h1><h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /lib/systemd/system/docker.service</span><br></pre></td></tr></table></figure>
+        <h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /lib/systemd/system/docker.service</span><br></pre></td></tr></table></figure>
 
 <h2 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h2><p>找到<code>ExecStart</code>,并添加<strong>-H tcp://0.0.0.0:2375</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">原：</span><br><span class="line">ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span><br></pre></td></tr></table></figure>
