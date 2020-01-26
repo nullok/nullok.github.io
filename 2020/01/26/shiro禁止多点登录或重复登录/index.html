@@ -17,20 +17,21 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>分类 | NullOK</title>
-  <meta name="description" content="talk is cheap,show me your code.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://www.nullok.com/categories/index.html">
+  <title>shiro禁止多点登录或重复登录 | NullOK</title>
+  <meta name="description" content="目的：每个用户只允许一个session可用，在redis中也只能有一条session记录  为演示直接在Controller层进行控制（我也不是很清楚应该在哪里进行控制，哈哈哈） 思路：shiro认证通过之后向session中保存当前登录的账号（唯一识别），获取redis 中存的所有session，依据上次登录向session保存的信息找到上一次存的session，先删除redis中的sess">
+<meta name="keywords" content="Shiro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shiro禁止多点登录或重复登录">
+<meta property="og:url" content="http://www.nullok.com/2020/01/26/shiro禁止多点登录或重复登录/index.html">
 <meta property="og:site_name" content="NullOK - Blog">
-<meta property="og:description" content="talk is cheap,show me your code.">
+<meta property="og:description" content="目的：每个用户只允许一个session可用，在redis中也只能有一条session记录  为演示直接在Controller层进行控制（我也不是很清楚应该在哪里进行控制，哈哈哈） 思路：shiro认证通过之后向session中保存当前登录的账号（唯一识别），获取redis 中存的所有session，依据上次登录向session保存的信息找到上一次存的session，先删除redis中的sess">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-23T14:19:33.150Z">
+<meta property="og:updated_time" content="2020-01-26T11:16:50.867Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
-<meta name="twitter:description" content="talk is cheap,show me your code.">
+<meta name="twitter:title" content="shiro禁止多点登录或重复登录">
+<meta name="twitter:description" content="目的：每个用户只允许一个session可用，在redis中也只能有一条session记录  为演示直接在Controller层进行控制（我也不是很清楚应该在哪里进行控制，哈哈哈） 思路：shiro认证通过之后向session中保存当前登录的账号（唯一识别），获取redis 中存的所有session，依据上次登录向session保存的信息找到上一次存的session，先删除redis中的sess">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://www.nullok.com/categories/index.html">
+  <link rel="canonical" href="http://www.nullok.com/2020/01/26/shiro禁止多点登录或重复登录/index.html">
   
     <link rel="alternate" href="/atom.xml" title="NullOK - Blog" type="application/atom+xml">
   
@@ -340,243 +341,182 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="article article-categories article-type-list" itemscope="">
-    <header class="article-header">
-      <h1 itemprop="name" class="hidden-xs">分类</h1>
-      <p class="text-muted hidden-xs">共 7 个分类</p>
-      <nav role="navigation" id="nav-main" class="okayNav">
-        <ul>
-          <li><a href="/categories">All</a></li>
-          
-          <li><a href="/categories/Shiro/">Shiro</a></li>
-          
-          <li><a href="/categories/Servlet/">Servlet</a></li>
-          
-          <li><a href="/categories/工具/">工具</a></li>
-          
-          <li><a href="/categories/Struts2/">Struts2</a></li>
-          
-          <li><a href="/categories/SpringBoot/">SpringBoot</a></li>
-          
-          <li><a href="/categories/docker/">docker</a></li>
-          
-          <li><a href="/categories/Java/">Java</a></li>
-          
-        </ul>
-      </nav>
-    </header>
-    <!-- /header -->
-    <div class="article-body">
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-shiro禁止多点登录或重复登录" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
       
-      <div class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapseShiro" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              Shiro
-            </a>
-            <small class="text-muted">(Total 2 articles)</small>
-          </h3>
-        </div>
-        <div id="collapseShiro" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingShiro">
-          <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/2020/01/23/Shiro-Redis自定义session会话管理/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-01-23T11:54:09.000Z" itemprop="datePublished">2020-01-23</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Shiro + Redis自定义session会话管理
-</a>
+        
+  
+    <h1 class="article-title" itemprop="name">
+      shiro禁止多点登录或重复登录
+    </h1>
+  
 
-
-              
-                
-<a href="/2020/01/26/shiro禁止多点登录或重复登录/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-01-26T07:00:48.000Z" itemprop="datePublished">2020-01-26</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> shiro禁止多点登录或重复登录
-</a>
-
-
-              
-            </div>
-          </div>
-        </div>
-      </div>
       
-      <div class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapseServlet" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              Servlet
-            </a>
-            <small class="text-muted">(Total 1 articles)</small>
-          </h3>
-        </div>
-        <div id="collapseServlet" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingServlet">
-          <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/2019/07/23/IDEA导入mysql驱动，运行时找不到驱动包解决方案/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-07-23T10:09:13.000Z" itemprop="datePublished">2019-07-23</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> IDEA导入mysql驱动，运行时找不到驱动包解决方案
-</a>
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/01/26/shiro禁止多点登录或重复登录/" class="article-date">
+	  <time datetime="2020-01-26T07:00:48.000Z" itemprop="datePublished">2020-01-26</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Shiro/">Shiro</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Shiro/">Shiro</a>
+  </span>
 
 
-              
-            </div>
-          </div>
-        </div>
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/26/shiro禁止多点登录或重复登录/#comments" class="article-comment-link">评论</a></span>
+        
       </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
       
-      <div class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse工具" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              工具
-            </a>
-            <small class="text-muted">(Total 1 articles)</small>
-          </h3>
-        </div>
-        <div id="collapse工具" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading工具">
-          <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/2019/07/20/MyEclipse2017破解方法/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-07-20T13:58:59.000Z" itemprop="datePublished">2019-07-20</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> MyEclipse2017破解方法
-</a>
+        <blockquote>
+<p> 目的：每个用户只允许一个session可用，在redis中也只能有一条session记录</p>
+</blockquote>
+<p>为演示直接在<code>Controller</code>层进行控制（我也不是很清楚应该在哪里进行控制，哈哈哈）</p>
+<p>思路：<code>shiro</code><strong>认证通过之后</strong>向<code>session</code>中保存当前登录的账号（唯一识别），获取<code>redis</code> 中存的所有<code>session</code>，依据上次登录向session保存的信息找到上一次存的<code>session</code>，先删除<code>redis</code>中的<code>session</code>，在设置<code>session</code>失效。</p>
+<p>缺点：用户量大的时候效率太低。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@PostMapping</span>(<span class="string">"/login"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">login</span><span class="params">(String phone,String password)</span> </span>&#123;</span><br><span class="line">    System.out.println(password+phone);</span><br><span class="line">    Subject subject = SecurityUtils.getSubject();</span><br><span class="line">    UsernamePasswordToken upToken = <span class="keyword">new</span> UsernamePasswordToken(phone, password);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        subject.login(upToken);</span><br><span class="line">        <span class="comment">// shiro认证通过之后 才进行session的替换</span></span><br><span class="line">        <span class="keyword">if</span> (subject.isAuthenticated()) &#123;</span><br><span class="line">            <span class="comment">// 获取所有的session</span></span><br><span class="line">            Collection&lt;Session&gt; activeSessions = sessionDAO.getActiveSessions();</span><br><span class="line">            <span class="keyword">if</span>(activeSessions.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                activeSessions.forEach(session -&gt; &#123;</span><br><span class="line">                <span class="comment">// 找到当前phone的session（上一次存的session）</span></span><br><span class="line">                <span class="keyword">if</span> (phone.equals(session.getAttribute(<span class="string">"phoneKey"</span>)) &#123;</span><br><span class="line">                    <span class="comment">// 先在redis 中删除</span></span><br><span class="line">                    sessionRedisTemplate.delete(AppConstants.SHIRO_SESSION_REDIS_PREFIX + session.getId());</span><br><span class="line">                    <span class="comment">// 在设置session失效，否则先失效就获取不到id了</span></span><br><span class="line">                    session.setTimeout(<span class="number">0</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*向session中保存当前登录的手机号，以便检测是否登录过*/</span></span><br><span class="line">        subject.getSession().setAttribute(<span class="string">"phoneKey"</span>, phone);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (UnknownAccountException | IncorrectCredentialsException e) &#123;</span><br><span class="line">        <span class="keyword">return</span> ResultEntity.error(ResultStatus.USERNAME_OR_PASSWORD_ERROR);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ResultEntity.ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-              
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapseStruts2" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              Struts2
-            </a>
-            <small class="text-muted">(Total 1 articles)</small>
-          </h3>
-        </div>
-        <div id="collapseStruts2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingStruts2">
-          <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/2019/07/29/Struts2-5-x遇到的坑/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-07-29T11:55:28.000Z" itemprop="datePublished">2019-07-29</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Struts2.5.x遇到的坑
-</a>
-
-
-              
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapseSpringBoot" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              SpringBoot
-            </a>
-            <small class="text-muted">(Total 1 articles)</small>
-          </h3>
-        </div>
-        <div id="collapseSpringBoot" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSpringBoot">
-          <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/2019/10/05/springboot-mybatis配置中遇到的问题/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-10-05T13:43:01.000Z" itemprop="datePublished">2019-10-05</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> springboot+mybatis配置中遇到的问题
-</a>
-
-
-              
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapsedocker" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              docker
-            </a>
-            <small class="text-muted">(Total 1 articles)</small>
-          </h3>
-        </div>
-        <div id="collapsedocker" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingdocker">
-          <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/2020/01/22/Ubuntu中docker开启远程模式/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-01-22T09:54:49.000Z" itemprop="datePublished">2020-01-22</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Ubuntu中docker开启远程模式
-</a>
-
-
-              
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapseJava" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              Java
-            </a>
-            <small class="text-muted">(Total 2 articles)</small>
-          </h3>
-        </div>
-        <div id="collapseJava" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingJava">
-          <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/2019/07/19/java注解学习笔记/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-07-19T14:54:22.000Z" itemprop="datePublished">2019-07-19</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Java 注解 学习笔记
-</a>
-
-
-              
-                
-<a href="/2019/07/20/java反射学习笔记/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-07-19T16:10:57.000Z" itemprop="datePublished">2019-07-20</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Java 反射(Reflection) 学习笔记
-</a>
-
-
-              
-            </div>
-          </div>
-        </div>
-      </div>
       
     </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://www.nullok.com/2020/01/26/shiro禁止多点登录或重复登录/" title="shiro禁止多点登录或重复登录" target="_blank" rel="external">http://www.nullok.com/2020/01/26/shiro禁止多点登录或重复登录/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/nullok" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/nullok" target="_blank"><span class="text-dark">NullOk</span><small class="ml-1x">code &amp; code</small></a></h3>
+        <div>多敲代码，别比比</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
   </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2020/01/23/Shiro-Redis自定义session会话管理/" title="Shiro + Redis自定义session会话管理"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
+
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
 	
 	
@@ -627,6 +567,10 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 <script src="/js/insight.js"></script>
 
 
+
+
+
+   
 
 
 

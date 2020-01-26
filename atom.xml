@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.nullok.com/"/>
-  <updated>2020-01-24T01:55:12.327Z</updated>
+  <updated>2020-01-26T11:16:50.867Z</updated>
   <id>http://www.nullok.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shiro禁止多点登录或重复登录</title>
+    <link href="http://www.nullok.com/2020/01/26/shiro%E7%A6%81%E6%AD%A2%E5%A4%9A%E7%82%B9%E7%99%BB%E5%BD%95%E6%88%96%E9%87%8D%E5%A4%8D%E7%99%BB%E5%BD%95/"/>
+    <id>http://www.nullok.com/2020/01/26/shiro%E7%A6%81%E6%AD%A2%E5%A4%9A%E7%82%B9%E7%99%BB%E5%BD%95%E6%88%96%E9%87%8D%E5%A4%8D%E7%99%BB%E5%BD%95/</id>
+    <published>2020-01-26T07:00:48.000Z</published>
+    <updated>2020-01-26T11:16:50.867Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p> 目的：每个用户只允许一个session可用，在redis中也只能有一条session记录</p></blockquote><p>为演示直接在<code>Controller</code>层进行控制（我也不是很清楚应该在哪里进行控制，哈哈哈）</p><p>思路：<code>shiro</code><strong>认证通过之后</strong>向<code>session</code>中保存当前登录的账号（唯一识别），获取<code>redis</code> 中存的所有<code>session</code>，依据上次登录向session保存的信息找到上一次存的<code>session</code>，先删除<code>redis</code>中的<code>session</code>，在设置<code>session</code>失效。</p><p>缺点：用户量大的时候效率太低。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@PostMapping</span>(<span class="string">"/login"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">login</span><span class="params">(String phone,String password)</span> </span>&#123;</span><br><span class="line">    System.out.println(password+phone);</span><br><span class="line">    Subject subject = SecurityUtils.getSubject();</span><br><span class="line">    UsernamePasswordToken upToken = <span class="keyword">new</span> UsernamePasswordToken(phone, password);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        subject.login(upToken);</span><br><span class="line">        <span class="comment">// shiro认证通过之后 才进行session的替换</span></span><br><span class="line">        <span class="keyword">if</span> (subject.isAuthenticated()) &#123;</span><br><span class="line">            <span class="comment">// 获取所有的session</span></span><br><span class="line">            Collection&lt;Session&gt; activeSessions = sessionDAO.getActiveSessions();</span><br><span class="line">            <span class="keyword">if</span>(activeSessions.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                activeSessions.forEach(session -&gt; &#123;</span><br><span class="line">                <span class="comment">// 找到当前phone的session（上一次存的session）</span></span><br><span class="line">                <span class="keyword">if</span> (phone.equals(session.getAttribute(<span class="string">"phoneKey"</span>)) &#123;</span><br><span class="line">                    <span class="comment">// 先在redis 中删除</span></span><br><span class="line">                    sessionRedisTemplate.delete(AppConstants.SHIRO_SESSION_REDIS_PREFIX + session.getId());</span><br><span class="line">                    <span class="comment">// 在设置session失效，否则先失效就获取不到id了</span></span><br><span class="line">                    session.setTimeout(<span class="number">0</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*向session中保存当前登录的手机号，以便检测是否登录过*/</span></span><br><span class="line">        subject.getSession().setAttribute(<span class="string">"phoneKey"</span>, phone);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (UnknownAccountException | IncorrectCredentialsException e) &#123;</span><br><span class="line">        <span class="keyword">return</span> ResultEntity.error(ResultStatus.USERNAME_OR_PASSWORD_ERROR);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ResultEntity.ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt; 目的：每个用户只允许一个session可用，在redis中也只能有一条session记录&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;为演示直接在&lt;code&gt;Controller&lt;/code&gt;层进行控制（我也不是很清楚应该在哪里进行控制，哈哈哈）&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="Shiro" scheme="http://www.nullok.com/categories/Shiro/"/>
+    
+    
+      <category term="Shiro" scheme="http://www.nullok.com/tags/Shiro/"/>
+    
+  </entry>
   
   <entry>
     <title>Shiro + Redis自定义session会话管理</title>
