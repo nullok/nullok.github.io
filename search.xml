@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[shiro禁止多点登录或重复登录]]></title>
+    <title><![CDATA[解决git无法忽略target办法]]></title>
+    <url>%2F2020%2F01%2F28%2F%E8%A7%A3%E5%86%B3git%E6%97%A0%E6%B3%95%E5%BF%BD%E7%95%A5target%E5%8A%9E%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[0x001 添加.gitignore配置忽略文件规则11.创建文件.gitignore 1232.添加内容/target/.idea 0x002 git 配置.gitignore1git config core.excludesfile .gitignore 0x003 解决.gitignore不生效.gitignore只能忽略原来没有被跟踪的文件，因此跟踪过的文件是无法被忽略的。因此在网页上可以看到target等目录的存在。解决方法就是先把本地缓存删除（改变成未track状态），然后再提交: 123git rm -r --cached .git add .git commit -m &apos;xxx&apos; 0x004 推送1git push]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shiro禁止多点登录或重复登录]]></title>
     <url>%2F2020%2F01%2F26%2Fshiro%E7%A6%81%E6%AD%A2%E5%A4%9A%E7%82%B9%E7%99%BB%E5%BD%95%E6%88%96%E9%87%8D%E5%A4%8D%E7%99%BB%E5%BD%95%2F</url>
     <content type="text"><![CDATA[目的：每个用户只允许一个session可用，在redis中也只能有一条session记录 为演示直接在Controller层进行控制（我也不是很清楚应该在哪里进行控制，哈哈哈） 思路：shiro认证通过之后向session中保存当前登录的账号（唯一识别），获取redis 中存的所有session，依据上次登录向session保存的信息找到上一次存的session，先删除redis中的session，在设置session失效。 缺点：用户量大的时候效率太低。 12345678910111213141516171819202122232425262728293031 @PostMapping("/login")public Object login(String phone,String password) &#123; System.out.println(password+phone); Subject subject = SecurityUtils.getSubject(); UsernamePasswordToken upToken = new UsernamePasswordToken(phone, password); try &#123; subject.login(upToken); // shiro认证通过之后 才进行session的替换 if (subject.isAuthenticated()) &#123; // 获取所有的session Collection&lt;Session&gt; activeSessions = sessionDAO.getActiveSessions(); if(activeSessions.size() &gt; 0) &#123; activeSessions.forEach(session -&gt; &#123; // 找到当前phone的session（上一次存的session） if (phone.equals(session.getAttribute("phoneKey")) &#123; // 先在redis 中删除 sessionRedisTemplate.delete(AppConstants.SHIRO_SESSION_REDIS_PREFIX + session.getId()); // 在设置session失效，否则先失效就获取不到id了 session.setTimeout(0); &#125; &#125;); &#125; &#125; /*向session中保存当前登录的手机号，以便检测是否登录过*/ subject.getSession().setAttribute("phoneKey", phone); &#125; catch (UnknownAccountException | IncorrectCredentialsException e) &#123; return ResultEntity.error(ResultStatus.USERNAME_OR_PASSWORD_ERROR); &#125; return ResultEntity.ok();&#125;]]></content>
       <categories>
