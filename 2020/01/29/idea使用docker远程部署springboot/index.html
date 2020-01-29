@@ -17,21 +17,29 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>springboot+mybatis配置中遇到的问题 | NullOK</title>
-  <meta name="description" content="配置数据源123456789101112131415161718192021222324@Configuration@MapperScan(&quot;cn.ileehan.community.dao&quot;)public class DataSourceConfiguration &amp;#123;    @Value(&quot;$&amp;#123;c3p0.driver&amp;#125;&quot;)    private String jdb">
-<meta name="keywords" content="笔记,SpringBoot,Mybatis">
+  <title>idea使用docker远程部署springboot | NullOK</title>
+  <meta name="description" content="0x001 准备工作阿里云Ubuntu16.04   Docker version 19.03.3, build a872fc2 IntelliJ IDEA 2019.3.1 x64 0x002 配置Docker,开启远程 开启docker远程访问端口（可任意，默认2375），为了安全起见我们开启4243端口 1# vim /lib/systemd/system/docker.service  在">
+<meta name="keywords" content="Springboot,Docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springboot+mybatis配置中遇到的问题">
-<meta property="og:url" content="http://www.nullok.com/2019/10/05/springboot-mybatis配置中遇到的问题/index.html">
+<meta property="og:title" content="idea使用docker远程部署springboot">
+<meta property="og:url" content="http://www.nullok.com/2020/01/29/idea使用docker远程部署springboot/index.html">
 <meta property="og:site_name" content="NullOK - Blog">
-<meta property="og:description" content="配置数据源123456789101112131415161718192021222324@Configuration@MapperScan(&quot;cn.ileehan.community.dao&quot;)public class DataSourceConfiguration &amp;#123;    @Value(&quot;$&amp;#123;c3p0.driver&amp;#125;&quot;)    private String jdb">
+<meta property="og:description" content="0x001 准备工作阿里云Ubuntu16.04   Docker version 19.03.3, build a872fc2 IntelliJ IDEA 2019.3.1 x64 0x002 配置Docker,开启远程 开启docker远程访问端口（可任意，默认2375），为了安全起见我们开启4243端口 1# vim /lib/systemd/system/docker.service  在">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-23T14:39:19.595Z">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/29/1QnXjK.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/29/1QQQCd.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/29/1QQ7qK.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/29/1QlEGj.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/29/1QlloF.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/29/1Ql6SA.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/29/1QlqO0.png">
+<meta property="og:updated_time" content="2020-01-29T09:29:40.022Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="springboot+mybatis配置中遇到的问题">
-<meta name="twitter:description" content="配置数据源123456789101112131415161718192021222324@Configuration@MapperScan(&quot;cn.ileehan.community.dao&quot;)public class DataSourceConfiguration &amp;#123;    @Value(&quot;$&amp;#123;c3p0.driver&amp;#125;&quot;)    private String jdb">
+<meta name="twitter:title" content="idea使用docker远程部署springboot">
+<meta name="twitter:description" content="0x001 准备工作阿里云Ubuntu16.04   Docker version 19.03.3, build a872fc2 IntelliJ IDEA 2019.3.1 x64 0x002 配置Docker,开启远程 开启docker远程访问端口（可任意，默认2375），为了安全起见我们开启4243端口 1# vim /lib/systemd/system/docker.service  在">
+<meta name="twitter:image" content="https://s2.ax1x.com/2020/01/29/1QnXjK.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://www.nullok.com/2019/10/05/springboot-mybatis配置中遇到的问题/index.html">
+  <link rel="canonical" href="http://www.nullok.com/2020/01/29/idea使用docker远程部署springboot/index.html">
   
     <link rel="alternate" href="/atom.xml" title="NullOK - Blog" type="application/atom+xml">
   
@@ -344,14 +352,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-springboot-mybatis配置中遇到的问题" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-idea使用docker远程部署springboot" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      springboot+mybatis配置中遇到的问题
+      idea使用docker远程部署springboot
     </h1>
   
 
@@ -359,39 +367,87 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/10/05/springboot-mybatis配置中遇到的问题/" class="article-date">
-	  <time datetime="2019-10-05T13:43:01.000Z" itemprop="datePublished">2019-10-05</time>
+	<a href="/2020/01/29/idea使用docker远程部署springboot/" class="article-date">
+	  <time datetime="2020-01-29T08:29:38.000Z" itemprop="datePublished">2020-01-29</time>
 	</a>
 </span>
         
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/SpringBoot/">SpringBoot</a>
-  </span>
-
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Mybatis/">Mybatis</a>, <a class="article-tag-link" href="/tags/SpringBoot/">SpringBoot</a>, <a class="article-tag-link" href="/tags/笔记/">笔记</a>
+	<a class="article-tag-link" href="/tags/Docker/">Docker</a>, <a class="article-tag-link" href="/tags/Springboot/">Springboot</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/05/springboot-mybatis配置中遇到的问题/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/29/idea使用docker远程部署springboot/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="配置数据源"><a href="#配置数据源" class="headerlink" title="配置数据源"></a>配置数据源</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@MapperScan</span>(<span class="string">"cn.ileehan.community.dao"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataSourceConfiguration</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;c3p0.driver&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String jdbcDriver;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;c3p0.url&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String jdbcUrl;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;c3p0.name&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String jdbcUsername;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;c3p0.password&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String jdbcPassword;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span>(name = <span class="string">"dataSource"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ComboPooledDataSource <span class="title">createDataSource</span><span class="params">()</span> <span class="keyword">throws</span> PropertyVetoException </span>&#123;</span><br><span class="line">        ComboPooledDataSource dataSource = <span class="keyword">new</span> ComboPooledDataSource();</span><br><span class="line">        dataSource.setDriverClass(jdbcDriver);</span><br><span class="line">        dataSource.setJdbcUrl(jdbcUrl);</span><br><span class="line">        dataSource.setUser(jdbcUsername);</span><br><span class="line">        dataSource.setPassword(jdbcPassword);</span><br><span class="line">        <span class="comment">// 关闭连接之后不自动commit</span></span><br><span class="line">        dataSource.setAutoCommitOnClose(<span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">return</span> dataSource;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="0x001-准备工作"><a href="#0x001-准备工作" class="headerlink" title="0x001 准备工作"></a>0x001 准备工作</h2><p>阿里云Ubuntu16.04  </p>
+<p>Docker version 19.03.3, build a872fc2</p>
+<p>IntelliJ IDEA 2019.3.1 x64</p>
+<h2 id="0x002-配置Docker-开启远程"><a href="#0x002-配置Docker-开启远程" class="headerlink" title="0x002 配置Docker,开启远程"></a>0x002 配置Docker,开启远程</h2><ol>
+<li><p>开启<code>docker</code>远程访问端口（可任意，默认<code>2375</code>），为了安全起见我们开启<code>4243</code>端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vim /lib/systemd/system/docker.service</span><br></pre></td></tr></table></figure>
 
-<h2 id="配置SqlSessionFactoryBean"><a href="#配置SqlSessionFactoryBean" class="headerlink" title="配置SqlSessionFactoryBean"></a>配置SqlSessionFactoryBean</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SessionFactoryConfiguration</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;mapper.xml.config.path&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String mapperXMLConfigPath;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;mapper.package.path&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String mapperPackagePath;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;mapper.global.config&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String globalConfig;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> DataSource dataSource;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> SqlSessionFactoryBean <span class="title">createSqlSessionFactory</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        SqlSessionFactoryBean sqlSessionFactoryBean = <span class="keyword">new</span> SqlSessionFactoryBean();</span><br><span class="line">        <span class="comment">// resource查找器可以查找类路径下或文件路径下的资源</span></span><br><span class="line">        PathMatchingResourcePatternResolver resolver = <span class="keyword">new</span> PathMatchingResourcePatternResolver();</span><br><span class="line">        <span class="comment">// mapperXML文件路径</span></span><br><span class="line">        String packageMapperXMLConfigPath = PathMatchingResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX + mapperXMLConfigPath;</span><br><span class="line">        <span class="comment">// mybatis-config.xml路径</span></span><br><span class="line">        String globalConfigPath = PathMatchingResourcePatternResolver.CLASSPATH_URL_PREFIX + globalConfig;</span><br><span class="line">        <span class="comment">// 设置 mapper 对应的 XML 文件的路径</span></span><br><span class="line">  sqlSessionFactoryBean.setMapperLocations(resolver.getResources(packageMapperXMLConfigPath));</span><br><span class="line">        <span class="comment">// 设置数据源</span></span><br><span class="line">        sqlSessionFactoryBean.setDataSource(dataSource);</span><br><span class="line">        <span class="comment">// 设置 mapper 接口所在的包</span></span><br><span class="line">        sqlSessionFactoryBean.setTypeAliasesPackage(mapperPackagePath);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 设置mybatis-config.xml，否则xml中全局配置将失效</span></span><br><span class="line">        sqlSessionFactoryBean.setConfigLocation(resolver.getResource(globalConfigPath));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> sqlSessionFactoryBean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在<code>ExecStart</code>后面追加<code>-H tcp://0.0.0.0:4243</code>，如图：</p>
+<p><img src="https://s2.ax1x.com/2020/01/29/1QnXjK.png" alt="tu"></p>
+</li>
+<li><p>重新加载配置文件，重启<code>docker</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line"></span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>注意：在使用配置类配置SqlSessionFactoryBean时，要记得设置setConfigLocation</p>
-</blockquote>
-<p># </p>
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p>检查是否开启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># curl http://127.0.0.1:4243/info</span><br></pre></td></tr></table></figure>
+
+<p>有返回说明开启成功：</p>
+<p><img src="https://s2.ax1x.com/2020/01/29/1QQQCd.png" alt="t"></p>
+</li>
+<li><p>配置阿里云安全组规则，设置防火墙允许<code>4243</code>端口</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ufw allow 4243</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="0x003-项目配置"><a href="#0x003-项目配置" class="headerlink" title="0x003 项目配置"></a>0x003 项目配置</h2><ol>
+<li><p><code>idea</code>连接<code>docker</code>，连接成功左下方显示<code>Connection successful</code></p>
+<p><img src="https://s2.ax1x.com/2020/01/29/1QQ7qK.png" alt="idea"></p>
+</li>
+<li><p>在<code>Springboot</code>项目中添加<code>docker-maven-plugin</code>插件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.spotify<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>docker-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--将插件绑定在某个phase执行--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>build-image<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--将插件绑定在package这个phase上。也就是说，用户只需执行mvn package ，就会自动执行mvn docker:build--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>build<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--指定生成的镜像名--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">imageName</span>&gt;</span>nullok/$&#123;project.artifactId&#125;<span class="tag">&lt;/<span class="name">imageName</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--指定标签--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">imageTags</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">imageTag</span>&gt;</span>latest<span class="tag">&lt;/<span class="name">imageTag</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">imageTags</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 指定 Dockerfile 路径--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dockerDirectory</span>&gt;</span>$&#123;project.basedir&#125;/src/main/docker<span class="tag">&lt;/<span class="name">dockerDirectory</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--指定远程 docker api地址--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dockerHost</span>&gt;</span>http://xxxxxxx:4243<span class="tag">&lt;/<span class="name">dockerHost</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 这里是复制 jar 包到 docker 容器指定目录配置 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">targetPath</span>&gt;</span>/<span class="tag">&lt;/<span class="name">targetPath</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--jar 包所在的路径  此处配置的 即对应 target 目录--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>$&#123;project.build.directory&#125;<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 需要包含的 jar包 ，这里对应的是 Dockerfile中添加的文件名　--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>$&#123;project.build.finalName&#125;.jar<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>创建docker文件夹和<code>Dockerfile</code>文件，<code>Dockerfile</code>文件位置就是<dockerdirectory>${project.basedir}/src/main/docker</dockerdirectory>指定的位置</p>
+<p><img src="https://s2.ax1x.com/2020/01/29/1QlEGj.png" alt="1"></p>
+<p><code>Dockerfile</code>文件内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FROM java:8u111 # 选择jdk</span><br><span class="line">VOLUME /tmp</span><br><span class="line">ADD target目录下打包生成的jar包的名字.jar app.jar</span><br><span class="line">RUN bash -c &apos;touch /app.jar&apos;</span><br><span class="line">EXPOSE 8080 # server.port</span><br><span class="line">ENTRYPOINT [ &quot;java&quot;, &quot;-Djava.security.egd=file:/dev/./urandom&quot;, &quot;-jar&quot;, &quot;/app.jar&quot; ]</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ol start="4">
+<li><p>在idea的右边找到<code>Maven Projects</code>，找到<code>Lifecycle</code>，双击<code>package</code>打包</p>
+<p>打包成功之后会在<code>images</code>中看到在配置文件中指定的镜像名</p>
+<p><img src="https://s2.ax1x.com/2020/01/29/1QlloF.png" alt="6"></p>
+</li>
+<li><p>创建容器，选中刚生成的镜像，右键点击<code>create container</code></p>
+<p>如下配置：</p>
+<p><img src="https://s2.ax1x.com/2020/01/29/1Ql6SA.png" alt="7"></p>
+</li>
+<li><p>运行成功，会看到如下界面，在左侧<code>containers</code>中会出现自己创建的容器而右侧就是我们熟悉的界面了。</p>
+<p><img src="https://s2.ax1x.com/2020/01/29/1QlqO0.png" alt="8"></p>
+</li>
+</ol>
 
       
     </div>
@@ -401,7 +457,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://www.nullok.com/2019/10/05/springboot-mybatis配置中遇到的问题/" title="springboot+mybatis配置中遇到的问题" target="_blank" rel="external">http://www.nullok.com/2019/10/05/springboot-mybatis配置中遇到的问题/</a>
+      <a href="http://www.nullok.com/2020/01/29/idea使用docker远程部署springboot/" title="idea使用docker远程部署springboot" target="_blank" rel="external">http://www.nullok.com/2020/01/29/idea使用docker远程部署springboot/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -447,13 +503,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/01/22/Ubuntu中docker开启远程模式/" title="Ubuntu中docker开启远程模式"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2019/07/29/Struts2-5-x遇到的坑/" title="Struts2.5.x遇到的坑"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/01/28/解决git无法忽略target办法/" title="解决git无法忽略target办法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

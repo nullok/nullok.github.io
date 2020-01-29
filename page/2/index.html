@@ -17,21 +17,19 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>Java 注解 学习笔记 | NullOK</title>
-  <meta name="description" content="一、注解格式注解格式格式：@注释名/ @注释名(value) 例如： 1@SuppressWaring(&quot;all&quot;)  二、内置注解1@Override // 用于修饰方法，表示重写  1@Deprecated // 可修饰方法 属性 类， 表示此方法弃用（不是不能用）  1@SuppressWarings // 抑制编译时的警告信息     参数 说明    deprecation 使用了过时的">
-<meta name="keywords" content="Java,笔记">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java 注解 学习笔记">
-<meta property="og:url" content="http://www.nullok.com/2019/07/19/java注解学习笔记/index.html">
+  <title>NullOK</title>
+  <meta name="description" content="talk is cheap,show me your code.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NullOK - Blog">
+<meta property="og:url" content="http://www.nullok.com/page/2/index.html">
 <meta property="og:site_name" content="NullOK - Blog">
-<meta property="og:description" content="一、注解格式注解格式格式：@注释名/ @注释名(value) 例如： 1@SuppressWaring(&quot;all&quot;)  二、内置注解1@Override // 用于修饰方法，表示重写  1@Deprecated // 可修饰方法 属性 类， 表示此方法弃用（不是不能用）  1@SuppressWarings // 抑制编译时的警告信息     参数 说明    deprecation 使用了过时的">
+<meta property="og:description" content="talk is cheap,show me your code.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-23T13:51:09.121Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 注解 学习笔记">
-<meta name="twitter:description" content="一、注解格式注解格式格式：@注释名/ @注释名(value) 例如： 1@SuppressWaring(&quot;all&quot;)  二、内置注解1@Override // 用于修饰方法，表示重写  1@Deprecated // 可修饰方法 属性 类， 表示此方法弃用（不是不能用）  1@SuppressWarings // 抑制编译时的警告信息     参数 说明    deprecation 使用了过时的">
+<meta name="twitter:title" content="NullOK - Blog">
+<meta name="twitter:description" content="talk is cheap,show me your code.">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://www.nullok.com/2019/07/19/java注解学习笔记/index.html">
+  <link rel="canonical" href="http://www.nullok.com/page/2/index.html">
   
     <link rel="alternate" href="/atom.xml" title="NullOK - Blog" type="application/atom+xml">
   
@@ -341,17 +339,18 @@
 </aside>
 
   
+  <main class="main" role="main">
   
-<main class="main" role="main">
-  <div class="content">
+  
+    <div class="content">
   <article id="post-java注解学习笔记" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
-    <h1 class="article-title" itemprop="name">
-      Java 注解 学习笔记
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/19/java注解学习笔记/">Java 注解 学习笔记</a>
     </h1>
   
 
@@ -554,90 +553,37 @@
     </div>
   </article>
   
-    
-  <section id="comments">
-  	
-      <div id="vcomments"></div>
-    
-  </section>
-
-
-  
 </div>
 
-  <nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
   
-  <ul class="pager pull-left">
-    
-    <li class="prev">
-      <a href="/2019/07/20/java反射学习笔记/" title="Java 反射(Reflection) 学习笔记"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
-    
-    
-  </ul>
+
   
-  
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
-  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
-    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
-  </div> -->
-  
-  
-  <div class="bar-right">
     
-    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
-    
-  </div>
-  </div>
-</nav>
-  
-<!-- Modal -->
-<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content donate">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <div class="modal-body">
-        <div class="donate-box">
-          <div class="donate-head">
-            <p>感谢您的支持，我会继续努力的!</p>
-          </div>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
-              <div class="donate-payimg">
-                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
-              </div>
-              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
-              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
-              <div class="donate-payimg">
-                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
-              </div>
-              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
-              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
-            </div>
-          </div>
-          <div class="donate-footer">
-            <ul class="nav nav-tabs nav-justified" role="tablist">
-              <li role="presentation" class="active">
-                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
-              </li>
-              <li role="presentation" class="">
-                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
-              </li>
-            </ul>
-          </div>
+    <nav class="bar bar-footer clearfix" data-stick-bottom>
+        <div class="bar-inner">
+        <ul class="pager pull-left">
+            
+            <li class="prev">
+                <a href="/">
+                    <i class="icon icon-angle-left"></i>
+                    上一页
+                </a>
+            </li>
+            
+            
+            <li class="next disabled">
+                <a href="javascript:;">
+                    下一页
+                    <i class="icon icon-angle-right"></i>                    
+                </a>
+            </li>
+            
+        </ul>
+        <div class="total-article bar-right">Page 2 of 2</div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
+    </nav>
+    
+ 
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -696,33 +642,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
    
 
 
-
-
-   
-    
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine"></script>
-  <script type="text/javascript">
-  var GUEST = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link';
-  meta = meta.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#vcomments',
-    verify: false,
-    notify: false,
-    appId: '',
-    appKey: '',
-    placeholder: 'Just go go',
-    avatar: 'mm',
-    meta: meta,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-  </script>
-
-     
 
 
 
