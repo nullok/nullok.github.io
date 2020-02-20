@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.nullok.com/"/>
-  <updated>2020-01-29T09:29:40.022Z</updated>
+  <updated>2020-02-20T08:07:39.851Z</updated>
   <id>http://www.nullok.com/</id>
   
   <author>
@@ -15,6 +15,91 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【JVM字节码指令逐步图解】4种常见i++ 与 ++i 的区别（下）</title>
+    <link href="http://www.nullok.com/2020/02/20/%E3%80%90JVM%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E9%80%90%E6%AD%A5%E5%9B%BE%E8%A7%A3%E3%80%914%E7%A7%8D%E5%B8%B8%E8%A7%81i-%E4%B8%8E-i-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
+    <id>http://www.nullok.com/2020/02/20/%E3%80%90JVM%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E9%80%90%E6%AD%A5%E5%9B%BE%E8%A7%A3%E3%80%914%E7%A7%8D%E5%B8%B8%E8%A7%81i-%E4%B8%8E-i-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%88%E4%B8%8B%EF%BC%89/</id>
+    <published>2020-02-20T08:03:11.000Z</published>
+    <updated>2020-02-20T08:07:39.851Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>环境：jdk1.8<br>工具：javap<br>javap操作命令：<code>javap -v xxx.class</code></p></blockquote><h1 id="0x003-类型三"><a href="#0x003-类型三" class="headerlink" title="0x003 类型三"></a>0x003 类型三</h1><p><strong>代码如下：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">difference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    i = i++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">10</span>;</span><br><span class="line">    j = ++j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>使用javap反编译一下得到如下信息：</strong></p><p><img src="https://img-blog.csdnimg.cn/20200220151723256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p><strong>操作流程：</strong><br><img src="https://img-blog.csdnimg.cn/20200220152304640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220152358347.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220152457515.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220152600943.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220152713771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220152748254.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220152824210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220152927149.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220153043614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220153133390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p><strong>区别：</strong></p><p><img src="https://img-blog.csdnimg.cn/20200220153403923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>通过上图可以看出，<code>i = i++</code>与<code>j = ++j</code>区别在于，前者先将<code>局部变量</code>表中的数据存入<code>操作栈</code>中，在将<code>局部变量表</code>中索引为1的数据增加1，然后将<code>栈中数据</code>存入<code>局部变量表</code>中索引1的位置，原来数据<code>被覆盖</code>，也就是<code>先使用，在自增</code>，只不过自增没有意义了；后者是先将<code>局部变量表</code>索引为2的值增加1，再将表中数据<code>取出压入栈当中</code>，最后再次存入局部变量表，<code>后两步操作对值没有什么影响</code>,也就是<code>先自增，在使用</code>。</p><h1 id="0x004-类型四"><a href="#0x004-类型四" class="headerlink" title="0x004 类型四"></a>0x004 类型四</h1><p><strong>代码如下：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">difference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> j = i++ + ++i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>使用javap反编译一下得到如下信息：</strong></p><p><img src="https://img-blog.csdnimg.cn/20200220154332899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p><strong>操作流程：</strong></p><p><img src="https://img-blog.csdnimg.cn/20200220154539263.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220154648447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220154747947.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220154845173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220154917988.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220155007211.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220155135972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p><img src="https://img-blog.csdnimg.cn/20200220155218205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>描述：</strong></p><p><img src="https://img-blog.csdnimg.cn/20200220155253807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>整体流程是，将10存入<code>局部变量表</code>之后，先取<code>局部变量表</code>中的值<code>（10）入栈</code>，在将<code>局部变量表</code>中的值<code>增加1（11）</code>【<code>这是i++的操作</code>】，在将<code>局部变量表</code>中的值<code>增加1（12）</code>，取出<code>局部变量表</code>中的<code>值（12）入栈</code>，最后进行<code>加和</code>。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;环境：jdk1.8&lt;br&gt;工具：javap&lt;br&gt;javap操作命令：&lt;code&gt;javap -v xxx.class&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;0x003-类型三&quot;&gt;&lt;a href=&quot;#0x003-类型三&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="http://www.nullok.com/categories/JVM/"/>
+    
+    
+      <category term="JVM" scheme="http://www.nullok.com/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【JVM字节码指令逐步图解】4种常见i++ 与 ++i 的区别（上）</title>
+    <link href="http://www.nullok.com/2020/02/20/%E3%80%90JVM%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E9%80%90%E6%AD%A5%E5%9B%BE%E8%A7%A3%E3%80%914%E7%A7%8D%E5%B8%B8%E8%A7%81i-%E4%B8%8E-i-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%88%E4%B8%8A%EF%BC%89/"/>
+    <id>http://www.nullok.com/2020/02/20/%E3%80%90JVM%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E9%80%90%E6%AD%A5%E5%9B%BE%E8%A7%A3%E3%80%914%E7%A7%8D%E5%B8%B8%E8%A7%81i-%E4%B8%8E-i-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%88%E4%B8%8A%EF%BC%89/</id>
+    <published>2020-02-20T08:01:38.000Z</published>
+    <updated>2020-02-20T08:07:29.364Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>环境：jdk1.8<br>工具：javap<br>javap操作命令：<code>javap -v xxx.class</code></p></blockquote><h1 id="0x001-类型一"><a href="#0x001-类型一" class="headerlink" title="0x001 类型一"></a>0x001 类型一</h1><p><strong>代码如下：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">difference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    i++;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">10</span>;</span><br><span class="line">    ++b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>使用javap反编译一下得到如下信息：</strong></p><p><img src="https://img-blog.csdnimg.cn/20200220134513862.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="javap反编译信息"></p><p><strong>操作流程：</strong></p><p><img src="https://img-blog.csdnimg.cn/20200220142144762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220142326949.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220142539723.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220142651881.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220142817695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020022014294545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><code>return</code> 表示<code>return void</code>,代表方法此方法结束。</p><p><strong>区别：</strong></p><p><img src="https://img-blog.csdnimg.cn/20200220145317402.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>通过上图可以看出，单纯的<code>i++</code>与<code>++i</code>的操作，他们的字节码指令流程是相同的，都是先入栈值，弹栈并存局部变量表，在将表中的值增加1.</p><h1 id="0x002-类型二"><a href="#0x002-类型二" class="headerlink" title="0x002 类型二"></a>0x002 类型二</h1><p><strong>代码如下：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">difference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">int</span> b = a++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">int</span> d = ++c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>使用javap反编译一下得到如下信息：</strong></p><p><img src="https://img-blog.csdnimg.cn/20200220143357318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p><strong>操作流程：</strong></p><p><img src="https://img-blog.csdnimg.cn/20200220143707859.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220143803820.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220143914757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220144041926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220144214382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220144403329.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220144528820.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220144715150.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220144854235.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220145014803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>区别</strong></p><p><img src="https://img-blog.csdnimg.cn/20200220145939795.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>通过上图可以看出，<code>int b = a++</code>与<code>int d = ++c</code>的区别，如红框圈出的地方所示。前者是先将<code>局部变量</code>表中的数据<code>入栈</code>，在将<code>局部变量表</code>中数据增加1，也就是<code>先使用后自增</code>；后者是先将<code>局部变量表</code>中数据增加1，在取出<code>局部变量</code>中数据<code>入栈</code>，也就是<code>先自增后使用</code>。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;环境：jdk1.8&lt;br&gt;工具：javap&lt;br&gt;javap操作命令：&lt;code&gt;javap -v xxx.class&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;0x001-类型一&quot;&gt;&lt;a href=&quot;#0x001-类型一&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="http://www.nullok.com/categories/JVM/"/>
+    
+    
+      <category term="JVM" scheme="http://www.nullok.com/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker 容器访问容器 解决方法</title>
+    <link href="http://www.nullok.com/2020/02/04/docker-%E5%AE%B9%E5%99%A8%E8%AE%BF%E9%97%AE%E5%AE%B9%E5%99%A8-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+    <id>http://www.nullok.com/2020/02/04/docker-%E5%AE%B9%E5%99%A8%E8%AE%BF%E9%97%AE%E5%AE%B9%E5%99%A8-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</id>
+    <published>2020-02-04T07:47:51.000Z</published>
+    <updated>2020-02-04T07:55:02.488Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>Redis举例</p></blockquote><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">redis:</span></span><br><span class="line"><span class="attr">    host:</span> <span class="string">redis</span> <span class="comment"># 随意</span></span><br><span class="line"><span class="attr">    port:</span> <span class="number">6379</span></span><br></pre></td></tr></table></figure><p>docker命令</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 6379:6379 --link redis容器id:redis(与yml配置相同) redis</span><br></pre></td></tr></table></figure><p>完！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;Redis举例&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight yml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;s
+      
+    
+    </summary>
+    
+    
+    
+      <category term="docker" scheme="http://www.nullok.com/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>idea使用docker远程部署springboot</title>
@@ -148,9 +233,9 @@
       <category term="docker" scheme="http://www.nullok.com/categories/docker/"/>
     
     
-      <category term="Ubuntu" scheme="http://www.nullok.com/tags/Ubuntu/"/>
-    
       <category term="docker" scheme="http://www.nullok.com/tags/docker/"/>
+    
+      <category term="Ubuntu" scheme="http://www.nullok.com/tags/Ubuntu/"/>
     
   </entry>
   

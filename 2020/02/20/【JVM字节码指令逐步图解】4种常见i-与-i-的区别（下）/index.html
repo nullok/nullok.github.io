@@ -17,26 +17,44 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>Struts2.5.x遇到的坑 | NullOK</title>
-  <meta name="description" content="通配符访问方法，报错404错误找不到页面报错截图  报错内容：There is no Action mapped for namespace [/] and action name [Emp_edit] associated with context path [/demo]. 错误原因：Struts2.5 为了提升安全性，默认开启了Strict Method Invocation（strict-">
-<meta name="keywords" content="-Struts2 -Java">
+  <title>【JVM字节码指令逐步图解】4种常见i++ 与 ++i 的区别（下） | NullOK</title>
+  <meta name="description" content="环境：jdk1.8工具：javapjavap操作命令：javap -v xxx.class  0x003 类型三代码如下： 1234567public void difference() &amp;#123;    int i = 10;    i = i++;    int j = 10;    j = ++j;&amp;#125;  使用javap反编译一下得到如下信息：  操作流程： 区别：  通过上图可">
+<meta name="keywords" content="JVM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Struts2.5.x遇到的坑">
-<meta property="og:url" content="http://www.nullok.com/2019/07/29/Struts2-5-x遇到的坑/index.html">
+<meta property="og:title" content="【JVM字节码指令逐步图解】4种常见i++ 与 ++i 的区别（下）">
+<meta property="og:url" content="http://www.nullok.com/2020/02/20/【JVM字节码指令逐步图解】4种常见i-与-i-的区别（下）/index.html">
 <meta property="og:site_name" content="NullOK - Blog">
-<meta property="og:description" content="通配符访问方法，报错404错误找不到页面报错截图  报错内容：There is no Action mapped for namespace [/] and action name [Emp_edit] associated with context path [/demo]. 错误原因：Struts2.5 为了提升安全性，默认开启了Strict Method Invocation（strict-">
+<meta property="og:description" content="环境：jdk1.8工具：javapjavap操作命令：javap -v xxx.class  0x003 类型三代码如下： 1234567public void difference() &amp;#123;    int i = 10;    i = i++;    int j = 10;    j = ++j;&amp;#125;  使用javap反编译一下得到如下信息：  操作流程： 区别：  通过上图可">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/29/e8GF00.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/29/e8GCXn.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/29/e8Gimq.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/29/e8G96s.jpg">
-<meta property="og:updated_time" content="2020-01-23T13:51:36.441Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220151723256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220152304640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220152358347.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220152457515.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220152600943.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220152713771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220152748254.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220152824210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220152927149.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220153043614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220153133390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220153403923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220154332899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220154539263.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220154648447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220154747947.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220154845173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220154917988.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220155007211.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220155135972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220155218205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200220155253807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2020-02-20T08:07:39.851Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Struts2.5.x遇到的坑">
-<meta name="twitter:description" content="通配符访问方法，报错404错误找不到页面报错截图  报错内容：There is no Action mapped for namespace [/] and action name [Emp_edit] associated with context path [/demo]. 错误原因：Struts2.5 为了提升安全性，默认开启了Strict Method Invocation（strict-">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/29/e8GF00.jpg">
+<meta name="twitter:title" content="【JVM字节码指令逐步图解】4种常见i++ 与 ++i 的区别（下）">
+<meta name="twitter:description" content="环境：jdk1.8工具：javapjavap操作命令：javap -v xxx.class  0x003 类型三代码如下： 1234567public void difference() &amp;#123;    int i = 10;    i = i++;    int j = 10;    j = ++j;&amp;#125;  使用javap反编译一下得到如下信息：  操作流程： 区别：  通过上图可">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200220151723256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://www.nullok.com/2019/07/29/Struts2-5-x遇到的坑/index.html">
+  <link rel="canonical" href="http://www.nullok.com/2020/02/20/【JVM字节码指令逐步图解】4种常见i-与-i-的区别（下）/index.html">
   
     <link rel="alternate" href="/atom.xml" title="NullOK - Blog" type="application/atom+xml">
   
@@ -349,14 +367,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Struts2-5-x遇到的坑" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-【JVM字节码指令逐步图解】4种常见i-与-i-的区别（下）" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Struts2.5.x遇到的坑
+      【JVM字节码指令逐步图解】4种常见i++ 与 ++i 的区别（下）
     </h1>
   
 
@@ -364,46 +382,53 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/07/29/Struts2-5-x遇到的坑/" class="article-date">
-	  <time datetime="2019-07-29T11:55:28.000Z" itemprop="datePublished">2019-07-29</time>
+	<a href="/2020/02/20/【JVM字节码指令逐步图解】4种常见i-与-i-的区别（下）/" class="article-date">
+	  <time datetime="2020-02-20T08:03:11.000Z" itemprop="datePublished">2020-02-20</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Struts2/">Struts2</a>
+    <a class="article-category-link" href="/categories/JVM/">JVM</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Struts2-Java/">-Struts2 -Java</a>
+	<a class="article-tag-link" href="/tags/JVM/">JVM</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/07/29/Struts2-5-x遇到的坑/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/02/20/【JVM字节码指令逐步图解】4种常见i-与-i-的区别（下）/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="通配符访问方法，报错404错误找不到页面"><a href="#通配符访问方法，报错404错误找不到页面" class="headerlink" title="通配符访问方法，报错404错误找不到页面"></a>通配符访问方法，报错404错误找不到页面</h3><p><strong>报错截图</strong></p>
-<p><img src="https://s2.ax1x.com/2019/07/29/e8GF00.jpg" alt="报错截图"></p>
-<p><strong>报错内容：</strong>There is no Action mapped for namespace [/] and action name [Emp_edit] associated with context path [/demo].</p>
-<p><strong>错误原因：</strong>Struts2.5 为了提升安全性，默认开启了Strict Method Invocation（<code>strict-method-invocation</code>）</p>
-<p>在SMI开启的情况下，通配符不会匹配所有的方法名，而是会匹配在<code>default-struts.xml</code>文件中<code>global-allowed-methods</code>属性所允许的方法名或者是匹配通过 <code>&lt;allowed-method/&gt;</code>标签来定义的方法名。</p>
-<p><strong>解决方法：</strong></p>
-<p>​        <strong>方法一</strong></p>
-<p>在struts.xml中的package下添加<global-allowed-methods>regex:.*</global-allowed-methods>，匹配所有。</p>
-<p><img src="https://s2.ax1x.com/2019/07/29/e8GCXn.jpg" alt="添加global"></p>
-<p>​        <strong>方法二</strong></p>
-<p>将package标签的属性<code>strict-method-invocation</code>设置为<code>false</code>。</p>
-<p><img src="https://s2.ax1x.com/2019/07/29/e8Gimq.jpg" alt="关闭SMI"></p>
-<p><strong>默认全局允许匹配的方法名称：</strong></p>
-<p><img src="https://s2.ax1x.com/2019/07/29/e8G96s.jpg" alt="默认允许的方法名"></p>
-<h2 id="动态匹配问题"><a href="#动态匹配问题" class="headerlink" title="动态匹配问题"></a>动态匹配问题</h2><p><a href="https://cwiki.apache.org/confluence/display/WW/Action+Configuration#ActionConfiguration-StrictMethodInvocation" target="_blank" rel="noopener">官方解释</a></p>
+        <blockquote>
+<p>环境：jdk1.8<br>工具：javap<br>javap操作命令：<code>javap -v xxx.class</code></p>
+</blockquote>
+<h1 id="0x003-类型三"><a href="#0x003-类型三" class="headerlink" title="0x003 类型三"></a>0x003 类型三</h1><p><strong>代码如下：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">difference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    i = i++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">10</span>;</span><br><span class="line">    j = ++j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用javap反编译一下得到如下信息：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20200220151723256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>操作流程：</strong><br><img src="https://img-blog.csdnimg.cn/20200220152304640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220152358347.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220152457515.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220152600943.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220152713771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220152748254.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220152824210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220152927149.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220153043614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220153133390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>区别：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20200220153403923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>通过上图可以看出，<code>i = i++</code>与<code>j = ++j</code>区别在于，前者先将<code>局部变量</code>表中的数据存入<code>操作栈</code>中，在将<code>局部变量表</code>中索引为1的数据增加1，然后将<code>栈中数据</code>存入<code>局部变量表</code>中索引1的位置，原来数据<code>被覆盖</code>，也就是<code>先使用，在自增</code>，只不过自增没有意义了；后者是先将<code>局部变量表</code>索引为2的值增加1，再将表中数据<code>取出压入栈当中</code>，最后再次存入局部变量表，<code>后两步操作对值没有什么影响</code>,也就是<code>先自增，在使用</code>。</p>
+<h1 id="0x004-类型四"><a href="#0x004-类型四" class="headerlink" title="0x004 类型四"></a>0x004 类型四</h1><p><strong>代码如下：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">difference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> j = i++ + ++i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用javap反编译一下得到如下信息：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20200220154332899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>操作流程：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20200220154539263.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220154648447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220154747947.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220154845173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220154917988.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220155007211.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200220155135972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200220155218205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>描述：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20200220155253807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjIzNTI0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>整体流程是，将10存入<code>局部变量表</code>之后，先取<code>局部变量表</code>中的值<code>（10）入栈</code>，在将<code>局部变量表</code>中的值<code>增加1（11）</code>【<code>这是i++的操作</code>】，在将<code>局部变量表</code>中的值<code>增加1（12）</code>，取出<code>局部变量表</code>中的<code>值（12）入栈</code>，最后进行<code>加和</code>。</p>
 
       
     </div>
@@ -413,7 +438,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://www.nullok.com/2019/07/29/Struts2-5-x遇到的坑/" title="Struts2.5.x遇到的坑" target="_blank" rel="external">http://www.nullok.com/2019/07/29/Struts2-5-x遇到的坑/</a>
+      <a href="http://www.nullok.com/2020/02/20/【JVM字节码指令逐步图解】4种常见i-与-i-的区别（下）/" title="【JVM字节码指令逐步图解】4种常见i++ 与 ++i 的区别（下）" target="_blank" rel="external">http://www.nullok.com/2020/02/20/【JVM字节码指令逐步图解】4种常见i-与-i-的区别（下）/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -459,13 +484,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2019/10/05/springboot-mybatis配置中遇到的问题/" title="springboot+mybatis配置中遇到的问题"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2019/07/23/IDEA导入mysql驱动，运行时找不到驱动包解决方案/" title="IDEA导入mysql驱动，运行时找不到驱动包解决方案"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/02/20/【JVM字节码指令逐步图解】4种常见i-与-i-的区别（上）/" title="【JVM字节码指令逐步图解】4种常见i++ 与 ++i 的区别（上）"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

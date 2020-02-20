@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【JVM字节码指令逐步图解】4种常见i++ 与 ++i 的区别（下）]]></title>
+    <url>%2F2020%2F02%2F20%2F%E3%80%90JVM%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E9%80%90%E6%AD%A5%E5%9B%BE%E8%A7%A3%E3%80%914%E7%A7%8D%E5%B8%B8%E8%A7%81i-%E4%B8%8E-i-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%88%E4%B8%8B%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[环境：jdk1.8工具：javapjavap操作命令：javap -v xxx.class 0x003 类型三代码如下： 1234567public void difference() &#123; int i = 10; i = i++; int j = 10; j = ++j;&#125; 使用javap反编译一下得到如下信息： 操作流程： 区别： 通过上图可以看出，i = i++与j = ++j区别在于，前者先将局部变量表中的数据存入操作栈中，在将局部变量表中索引为1的数据增加1，然后将栈中数据存入局部变量表中索引1的位置，原来数据被覆盖，也就是先使用，在自增，只不过自增没有意义了；后者是先将局部变量表索引为2的值增加1，再将表中数据取出压入栈当中，最后再次存入局部变量表，后两步操作对值没有什么影响,也就是先自增，在使用。 0x004 类型四代码如下： 1234public void difference() &#123; int i = 10; int j = i++ + ++i;&#125; 使用javap反编译一下得到如下信息： 操作流程： 描述： 整体流程是，将10存入局部变量表之后，先取局部变量表中的值（10）入栈，在将局部变量表中的值增加1（11）【这是i++的操作】，在将局部变量表中的值增加1（12），取出局部变量表中的值（12）入栈，最后进行加和。]]></content>
+      <categories>
+        <category>JVM</category>
+      </categories>
+      <tags>
+        <tag>JVM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【JVM字节码指令逐步图解】4种常见i++ 与 ++i 的区别（上）]]></title>
+    <url>%2F2020%2F02%2F20%2F%E3%80%90JVM%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E9%80%90%E6%AD%A5%E5%9B%BE%E8%A7%A3%E3%80%914%E7%A7%8D%E5%B8%B8%E8%A7%81i-%E4%B8%8E-i-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%88%E4%B8%8A%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[环境：jdk1.8工具：javapjavap操作命令：javap -v xxx.class 0x001 类型一代码如下： 123456public void difference() &#123; int i = 10; i++; int b = 10; ++b;&#125; 使用javap反编译一下得到如下信息： 操作流程： return 表示return void,代表方法此方法结束。 区别： 通过上图可以看出，单纯的i++与++i的操作，他们的字节码指令流程是相同的，都是先入栈值，弹栈并存局部变量表，在将表中的值增加1. 0x002 类型二代码如下： 1234567public void difference() &#123; int a = 20; int b = a++; int c = 20; int d = ++c;&#125; 使用javap反编译一下得到如下信息： 操作流程： 区别 通过上图可以看出，int b = a++与int d = ++c的区别，如红框圈出的地方所示。前者是先将局部变量表中的数据入栈，在将局部变量表中数据增加1，也就是先使用后自增；后者是先将局部变量表中数据增加1，在取出局部变量中数据入栈，也就是先自增后使用。]]></content>
+      <categories>
+        <category>JVM</category>
+      </categories>
+      <tags>
+        <tag>JVM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[docker 容器访问容器 解决方法]]></title>
+    <url>%2F2020%2F02%2F04%2Fdocker-%E5%AE%B9%E5%99%A8%E8%AE%BF%E9%97%AE%E5%AE%B9%E5%99%A8-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[Redis举例 123redis: host: redis # 随意 port: 6379 docker命令 1docker run -d -p 6379:6379 --link redis容器id:redis(与yml配置相同) redis 完！]]></content>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[idea使用docker远程部署springboot]]></title>
     <url>%2F2020%2F01%2F29%2Fidea%E4%BD%BF%E7%94%A8docker%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2springboot%2F</url>
     <content type="text"><![CDATA[0x001 准备工作阿里云Ubuntu16.04 Docker version 19.03.3, build a872fc2 IntelliJ IDEA 2019.3.1 x64 0x002 配置Docker,开启远程 开启docker远程访问端口（可任意，默认2375），为了安全起见我们开启4243端口 1# vim /lib/systemd/system/docker.service 在ExecStart后面追加-H tcp://0.0.0.0:4243，如图： 重新加载配置文件，重启docker 123systemctl daemon-reloadsystemctl start docker 检查是否开启 1# curl http://127.0.0.1:4243/info 有返回说明开启成功： 配置阿里云安全组规则，设置防火墙允许4243端口 1# ufw allow 4243 0x003 项目配置 idea连接docker，连接成功左下方显示Connection successful 在Springboot项目中添加docker-maven-plugin插件 123456789101112131415161718192021222324252627282930313233343536373839404142&lt;plugin&gt; &lt;groupId&gt;com.spotify&lt;/groupId&gt; &lt;artifactId&gt;docker-maven-plugin&lt;/artifactId&gt; &lt;version&gt;1.0.0&lt;/version&gt; &lt;!--将插件绑定在某个phase执行--&gt; &lt;executions&gt; &lt;execution&gt; &lt;id&gt;build-image&lt;/id&gt; &lt;!--将插件绑定在package这个phase上。也就是说，用户只需执行mvn package ，就会自动执行mvn docker:build--&gt; &lt;phase&gt;package&lt;/phase&gt; &lt;goals&gt; &lt;goal&gt;build&lt;/goal&gt; &lt;/goals&gt; &lt;/execution&gt; &lt;/executions&gt; &lt;configuration&gt; &lt;!--指定生成的镜像名--&gt; &lt;imageName&gt;nullok/$&#123;project.artifactId&#125;&lt;/imageName&gt; &lt;!--指定标签--&gt; &lt;imageTags&gt; &lt;imageTag&gt;latest&lt;/imageTag&gt; &lt;/imageTags&gt; &lt;!-- 指定 Dockerfile 路径--&gt; &lt;dockerDirectory&gt;$&#123;project.basedir&#125;/src/main/docker&lt;/dockerDirectory&gt; &lt;!--指定远程 docker api地址--&gt; &lt;dockerHost&gt;http://xxxxxxx:4243&lt;/dockerHost&gt; &lt;!-- 这里是复制 jar 包到 docker 容器指定目录配置 --&gt; &lt;resources&gt; &lt;resource&gt; &lt;targetPath&gt;/&lt;/targetPath&gt; &lt;!--jar 包所在的路径 此处配置的 即对应 target 目录--&gt; &lt;directory&gt;$&#123;project.build.directory&#125;&lt;/directory&gt; &lt;!-- 需要包含的 jar包 ，这里对应的是 Dockerfile中添加的文件名 --&gt; &lt;include&gt;$&#123;project.build.finalName&#125;.jar&lt;/include&gt; &lt;/resource&gt; &lt;/resources&gt; &lt;/configuration&gt;&lt;/plugin&gt; 创建docker文件夹和Dockerfile文件，Dockerfile文件位置就是${project.basedir}/src/main/docker指定的位置 Dockerfile文件内容 123456FROM java:8u111 # 选择jdkVOLUME /tmpADD target目录下打包生成的jar包的名字.jar app.jarRUN bash -c &apos;touch /app.jar&apos;EXPOSE 8080 # server.portENTRYPOINT [ &quot;java&quot;, &quot;-Djava.security.egd=file:/dev/./urandom&quot;, &quot;-jar&quot;, &quot;/app.jar&quot; ] 在idea的右边找到Maven Projects，找到Lifecycle，双击package打包 打包成功之后会在images中看到在配置文件中指定的镜像名 创建容器，选中刚生成的镜像，右键点击create container 如下配置： 运行成功，会看到如下界面，在左侧containers中会出现自己创建的容器而右侧就是我们熟悉的界面了。]]></content>
@@ -50,8 +80,8 @@
         <category>docker</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>docker</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
